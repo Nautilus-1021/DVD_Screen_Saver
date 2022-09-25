@@ -1,5 +1,7 @@
-import pygame, time, sys, random
+import pygame, time, sys, random, os
 import pygame.locals
+
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 pygame.init()
 
