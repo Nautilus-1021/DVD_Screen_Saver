@@ -1,3 +1,5 @@
+import random
+
 import pygame, time, sys, random, os
 import pygame.locals
 
@@ -7,18 +9,18 @@ pygame.init()
 
 windowSurface = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
+WINDOWWIDTH, WINDOWHEIGHT = windowSurface.get_size()
+
 IMAGEWIDTH = 250
 
 DVD_Image = pygame.image.load("DVD_Image.png").convert_alpha()
 IMAGEHEIGHT = (DVD_Image.get_size()[1]/DVD_Image.get_size()[0])*IMAGEWIDTH
 DVD_Image = pygame.transform.scale(DVD_Image, (IMAGEWIDTH, IMAGEHEIGHT))
 DVD_Rect = DVD_Image.get_rect()
-DVD_Rect.left = 50
-DVD_Rect.top = 50
+DVD_Rect.left = random.randint(0, WINDOWWIDTH - IMAGEWIDTH)
+DVD_Rect.top = random.randint(0, WINDOWHEIGHT - IMAGEHEIGHT)
 
 DVD_colors = [pygame.Color(37, 150, 190), pygame.Color(85, 206, 121), pygame.Color(255, 0, 0), pygame.Color(233, 255, 90), pygame.Color(116, 215, 255)]
-
-WINDOWWIDTH, WINDOWHEIGHT = windowSurface.get_size()
 
 MOVESPEED = 1
 
